@@ -21,16 +21,13 @@ X_train, X_test, y_train, y_test = train_test_split(
 # X_train, y_train = ro.fit_resample(X_train, y_train)
 # ad = ADASYN(random_state=42, sampling_strategy='minority')
 # X_train, y_train = ad.fit_resample(X_train, y_train)
-# sm = SMOTE(random_state=42, sampling_strategy='minority')
-# X_train, y_train = sm.fit_resample(X_train, y_train)
+sm = SMOTE(random_state=42, sampling_strategy='minority')
+X_train, y_train = sm.fit_resample(X_train, y_train)
 
 isf = GradientBoostingClassifier(random_state=10)
 model = isf.fit(X_train, y_train.values.ravel())
 y_score = model.decision_function(X_test)
 predictions = model.predict(X_test)
-
-predictions[predictions == 1] = 0
-predictions[predictions == -1] = 1
 
 print("ACCURACY: ", balanced_accuracy_score(y_test.to_numpy(), predictions))
 print("PRECISION: ", precision_score(

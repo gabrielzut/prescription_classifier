@@ -3,7 +3,6 @@ from pandas import read_csv
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import balanced_accuracy_score, precision_score, recall_score, f1_score
 from imblearn.over_sampling import SMOTE, ADASYN, RandomOverSampler
-from sklearn.utils.estimator_checks import check_estimator
 from plot_metric.functions import BinaryClassification
 import matplotlib.pyplot as plt
 

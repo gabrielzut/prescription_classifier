@@ -18,8 +18,8 @@ X_train, X_test, y_train, y_test = train_test_split(np_dataset, labels, test_siz
 # X_train, y_train = ro.fit_resample(X_train, y_train)
 # ad = ADASYN()
 # X_train, y_train = ad.fit_resample(X_train, y_train)
-# sm = SMOTE()
-# X_train, y_train = sm.fit_resample(X_train, y_train)
+sm = SMOTE()
+X_train, y_train = sm.fit_resample(X_train, y_train)
 
 db = DBSCAN(min_samples=50, eps=100)
 db.fit(X_train)
